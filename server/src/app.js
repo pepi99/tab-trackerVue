@@ -5,13 +5,13 @@ const cors = require('cors')
 const morgan = require('morgan')
 
 const app = express()
-app.use(morgan('combine'))
-app.use(bodyParser.json())
-app.use(cors())
+app.use(morgan('combined')) // Information about users (OS, IP, browsers, etc..)
+app.use(bodyParser.json()) // easily deals with json
+app.use(cors()) // any client from around the world can access the server
 
-app.get('/s', (req, res) => {
+app.get('/status', (req, res) => {
     res.send({
-        message: 'hello world, csshange!'
+        message: 'Hello'
     })
 })
 app.listen(8001)
